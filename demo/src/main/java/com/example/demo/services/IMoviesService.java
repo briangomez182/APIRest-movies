@@ -10,4 +10,5 @@ public interface IMoviesService {
     Optional<Movie> findById(Integer id);
     Movie save (Movie movie);
     Optional<Movie> findByName(String name);
+    List<Movie> findByTitleContaining(String title);
 }

@@ -14,9 +14,11 @@ public class MoviesServiceImpl implements IMoviesService{
     @Autowired
     private IMoviesRepository moviesRepository;
 
+
+
     @Override
     public List<Movie> findAll() {
-        return moviesRepository.findAll();
+        return moviesRepository. findAll();
     }
 
     @Override
@@ -33,4 +35,11 @@ public class MoviesServiceImpl implements IMoviesService{
     public Optional<Movie> findByName(String name) {
         return null;
     }
+
+    @Override
+    public List<Movie> findByTitleContaining(String title) {
+        return moviesRepository.findByTitleContaining(title);
+    }
+
+
 }

@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 import com.example.demo.models.Movie;
 import com.example.demo.services.IMoviesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,6 +32,12 @@ public class MovieController {
     @PostMapping("/")
     public Movie saveMovie(@RequestBody() Movie movie) {
         return iMoviesService.save(movie);
+    }
+
+    // Search movies
+    @GetMapping("/filter")
+    public List<Movie> findMoviesByTitle(@RequestParam() String title) {
+        return iMoviesService.findByTitleContaining(title);
     }
 }
 
